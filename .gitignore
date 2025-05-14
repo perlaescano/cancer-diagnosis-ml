@@ -1,5 +1,5 @@
 # Ignore dataset
-data/project3_data.csv
+data/tumor_classification_data.csv
 
 # Python cache
 __pycache__/
