@@ -1,29 +1,12 @@
 from preprocessing import preprocess_data
 from pyspark.ml.classification import RandomForestClassifier, LogisticRegression
-from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+from evaluation import evaluate_model
 
 def split_data(df, train_ratio=0.7, seed=12321):
     """
     Split the preprocessed DataFrame into training and testing sets.
     """
     return df.randomSplit([train_ratio, 1 - train_ratio], seed=seed)
-
-def evaluate_model(predictions, model_name="Model"):
-    """
-    Evaluate predictions using common classification metrics.
-    """
-    evaluator = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction")
-
-    accuracy = evaluator.setMetricName("accuracy").evaluate(predictions)
-    precision = evaluator.setMetricName("weightedPrecision").evaluate(predictions)
-    recall = evaluator.setMetricName("weightedRecall").evaluate(predictions)
-    f1 = evaluator.setMetricName("f1").evaluate(predictions)
-
-    print(f"\n=== {model_name} Evaluation ===")
-    print(f"Accuracy:  {accuracy:.5f}")
-    print(f"Precision: {precision:.5f}")
-    print(f"Recall:    {recall:.5f}")
-    print(f"F1 Score:  {f1:.5f}")
 
 
 def train_random_forest(train_df, test_df):
