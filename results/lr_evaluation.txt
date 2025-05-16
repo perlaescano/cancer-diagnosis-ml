@@ -1,0 +1,5 @@
+=== LogisticRegression Evaluation ===
+Accuracy:  0.95210
+Precision: 0.95266
+Recall:    0.95210
+F1 Score:  0.95224

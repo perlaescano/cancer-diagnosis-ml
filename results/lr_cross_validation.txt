@@ -1,0 +1,5 @@
+=== LogisticRegression (CV) Evaluation ===
+Accuracy:  0.97012
+Precision: 0.97112
+Recall:    0.97012
+F1 Score:  0.96988

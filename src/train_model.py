@@ -16,7 +16,7 @@ def train_random_forest(train_df, test_df):
     rf = RandomForestClassifier(labelCol="label", featuresCol="features", seed=12321)
     model = rf.fit(train_df)
     predictions = model.transform(test_df)
-    evaluate_model(predictions, model_name="Random Forest")
+    evaluate_model(predictions, model_name="RandomForestClassifier")
     return model
 
 def train_logistic_regression(train_df, test_df):
@@ -26,7 +26,7 @@ def train_logistic_regression(train_df, test_df):
     lr = LogisticRegression(labelCol="label", featuresCol="features", maxIter=100)
     model = lr.fit(train_df)
     predictions = model.transform(test_df)
-    evaluate_model(predictions, model_name="Logistic Regression")
+    evaluate_model(predictions, model_name="LogisticRegression")
     return model
 
 if __name__ == "__main__":
