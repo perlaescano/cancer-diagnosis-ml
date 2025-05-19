@@ -50,6 +50,51 @@ pip install pyspark pandas matplotlib seaborn
     └── train_model.py
 ```
 
+## Development Setup
+
+To ensure VS Code recognizes imports from the `src/` folder as the root of your Python package, create a `.vscode` directory in the project root and add a `settings.json` file:
+
+```bash
+mkdir -p .vscode
+touch .vscode/settings.json
+```
+Then add the following to `.vscode/settings.json`
+
+```json
+{
+  "python.analysis.extraPaths": ["src"]
+}
+```
+## How to Run
+
+Follow the steps below to execute the different parts of the project:
+1. **Start a Spark session**  
+   This is handled internally by the other scripts using `src/spark_session.py`. You do not need to run this directly.
+
+2. **Load and preview the data**  
+To verify the dataset is loading correctly, run:
+
+```bash
+  python src/load_data.py
+```
+3. **Preprocess the data**
+This script handles label encoding and feature vector assembly:
+```bash
+  python src/preprocessing.py
+
+```
+4. **Train models and evaluate**
+This trains Random Forest and Logistic Regression models and saves evaluation results to the `results/ folder:`
+
+```bash
+  python src/train_model.py
+```
+5. **Run Cross-validation**
+Applies 3-fold cross-validation to both models and saves the corresponding metrics:
+```bash
+  python src/cross_validation.py
+```
+
 ## Evaluation Metrics 
   - F1 Score
   - Precision
