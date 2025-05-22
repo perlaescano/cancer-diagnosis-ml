@@ -11,5 +11,8 @@ __pycache__/
 # Conda environment files (optional)
 *.env
 
+# Report files
+REPORT.* 
+
 # OS
 .DS_Store
